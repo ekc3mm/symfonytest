@@ -1,0 +1,131 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Friend
+ *
+ * @ORM\Table(name="friend")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\FriendRepository")
+ */
+class Friend
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fromuser", type="string", length=255)
+     */
+    private $fromuser;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="touser", type="string", length=255)
+     */
+    private $touser;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="assept", type="string", length=255)
+     */
+
+
+
+
+    private $assept;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set fromuser
+     *
+     * @param string $fromuser
+     *
+     * @return Friend
+     */
+    public function setFromuser($fromuser)
+    {
+        $this->fromuser = $fromuser;
+
+        return $this;
+    }
+
+    /**
+     * Get fromuser
+     *
+     * @return string
+     */
+    public function getFromuser()
+    {
+        return $this->fromuser;
+    }
+
+    /**
+     * Set touser
+     *
+     * @param string $touser
+     *
+     * @return Friend
+     */
+    public function setTouser($touser)
+    {
+        $this->touser = $touser;
+
+        return $this;
+    }
+
+    /**
+     * Get touser
+     *
+     * @return string
+     */
+    public function getTouser()
+    {
+        return $this->touser;
+    }
+
+    /**
+     * Set assept
+     *
+     * @param string $assept
+     *
+     * @return Friend
+     */
+    public function setAssept($assept)
+    {
+        $this->assept = $assept;
+
+        return $this;
+    }
+
+    /**
+     * Get assept
+     *
+     * @return string
+     */
+    public function getAssept()
+    {
+        return $this->assept;
+    }
+}

@@ -1,0 +1,23 @@
+
+{% extends 'post.html.twig' %}
+
+{% block posts %}
+    <div class="row">
+    {% for product in products %}
+
+            <div class="col-md-4">
+                <img class="img-thumbnail" src="{{ image_path }}/{{ product.image }}" alt="">
+                <div class="card-block">
+                    <a href="{{ path('post-view', {'id': product.id})  }}">
+                        <h4 class="card-title product-title">{{ product.title }}</h4>
+                    </a>
+                    <p class="card-text product-title">{{ product.category.name }}</p>
+                </div>
+            </div>
+
+    {% endfor %}
+
+    </div>
+
+{% endblock %}
+

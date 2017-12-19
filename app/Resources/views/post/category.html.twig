@@ -1,0 +1,14 @@
+
+
+
+    <div class="list-group" id="panel" style="">
+        {% for category in category %}
+
+        <a href="{{ path('post-category', {'id': category.id})  }}"  class="list-group-item">
+            {{ category.name }}
+        </a>
+
+        {%  endfor %}
+    </div>
+
+

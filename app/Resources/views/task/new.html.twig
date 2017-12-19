@@ -1,0 +1,17 @@
+{% extends '::base.html.twig' %}
+
+
+{% block body %}
+
+    <h2>New Task</h2>
+
+    <hr />
+
+    {{ form_start(TaskForm) }}
+    {{ form_widget(TaskForm) }}
+    {{ form_end(TaskForm) }}
+
+
+
+
+{% endblock %}

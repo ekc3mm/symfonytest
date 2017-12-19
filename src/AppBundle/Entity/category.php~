@@ -1,0 +1,81 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * category
+ *
+ * @ORM\Table(name="category")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\categoryRepository")
+ */
+class category
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="category")
+     */
+    private $name;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->name = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add name
+     *
+     * @param \AppBundle\Entity\Product $name
+     *
+     * @return category
+     */
+    public function addName(\AppBundle\Entity\Product $name)
+    {
+        $this->name[] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Remove name
+     *
+     * @param \AppBundle\Entity\Product $name
+     */
+    public function removeName(\AppBundle\Entity\Product $name)
+    {
+        $this->name->removeElement($name);
+    }
+
+    /**
+     * Get name
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+}

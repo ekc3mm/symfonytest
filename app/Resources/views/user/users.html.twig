@@ -1,0 +1,22 @@
+{% extends '::base.html.twig' %}
+
+
+
+
+{% block body %}
+    <div class="card-columns">
+{% for user in users %}
+
+    <div class="card text-center">
+
+        {{ user.email }}
+
+        <img class="card-img-top img-fluid" src="{{ image_path }}/{{ user.image }}" alt="">
+        <h4 class="card-title"> {{ user.name }}</h4>
+
+    </div>
+    {% endfor %}
+
+
+    </div>
+{% endblock %}

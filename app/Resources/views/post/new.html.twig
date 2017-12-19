@@ -1,0 +1,13 @@
+
+
+{% extends 'post.html.twig' %}
+
+
+{% block posts %}
+
+    <h3>Add Post</h3>
+    {{ form_start(ProductForm) }}
+    {{ form_widget(ProductForm) }}
+    {{ form_end(ProductForm) }}
+
+{% endblock %}

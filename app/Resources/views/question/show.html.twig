@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Question</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ question.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ question.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ question.description }}</td>
+            </tr>
+            <tr>
+                <th>View</th>
+                <td>{{ question.view }}</td>
+            </tr>
+            <tr>
+                <th>Tags</th>
+
+             <td>{% for key in question.tags.getValues  %}
+                        {{ key }}
+                 {% endfor %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('question_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('question_edit', { 'id': question.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+    <h2>Answers</h2>
+        <div class="row">
+            {% for answer in answers %}
+
+                <div class="col-md-12">
+                    {{ answer.name }}
+                </div>
+    {% endfor %}
+
+</div>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input type="submit" value="Create" />
+    {{ form_end(form) }}
+
+{% endblock %}
+
+
+

@@ -1,0 +1,16 @@
+{% extends 'post.html.twig' %}
+
+{% block posts %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <h3>Add Post</h3>
+        {{ form_start(ProductForm) }}
+        {{ form_widget(ProductForm) }}
+        {{ form_end(ProductForm) }}
+        <h3>Add Category</h3>
+        {{ form_start(CategoryForm) }}
+        {{ form_widget(CategoryForm) }}
+        {{ form_end(CategoryForm) }}
+    {% else %}
+        only for admin
+    {% endif %}
+{% endblock %}

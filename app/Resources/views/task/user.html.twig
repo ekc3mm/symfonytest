@@ -1,0 +1,35 @@
+{% extends '::base.html.twig' %}
+
+
+{% block body %}
+    <h1>{{ header }}</h1>
+
+    {% for task in tasks %}
+        <div class="row">
+        <div class="col-md-3">
+            <a href="{{ path('task-view', {'id': task.id})  }}">
+            {{ task.name }}
+            </a>
+        </div>
+        <div class="col-md-2">
+            {{ task.dodate|date("m/d/Y") }}
+        </div>
+        <div class="col-md-2">
+            {{ task.category }}
+        </div>
+        <div class="col-md-5">
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <a href="{{ path('task-copy', {'id': task.id})  }}" class="btn btn-success">copy</a>
+            {% if task.user ==  app.user.id  %}
+                <a href="{{ path('task-edit', {'id': task.id})  }}" class="btn btn-warning">edit</a>
+                <a href="{{ path('task-delete', {'id': task.id})  }}" class="btn btn-danger">delete</a>
+            {% else %}
+
+            {% endif %}
+        {% else %}
+
+        {% endif %}
+        </div>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+       <div class="row">
+
+
+              <div class="col-md-4">
+                     <img class="card-img-top img-fluid" src="{{ user.avatar_url }}" alt="Card image cap">
+                     <div class="card-block">
+                            <h4 class="card-title"> {{ user.login }}</h4>
+                            <p class="card-text">repositories: {{ user.public_repos }}</p>
+
+                     </div>
+              </div>
+
+              <div class="col-md-8">
+                     <h2>Repositories:</h2>
+                     {% for repo in repos %}
+                     <p class="card-text"><a href="{{ repo.html_url }}">{{ repo.name }}</a></p>
+                     {% endfor %}
+              </div>
+
+
+       </div>
+
+
+{% endblock %}
+

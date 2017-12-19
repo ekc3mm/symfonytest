@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Qcategories list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for qcategory in qcategories %}
+            <tr>
+                <td><a href="{{ path('qcategory_show', { 'id': qcategory.id }) }}">{{ qcategory.id }}</a></td>
+                <td>{{ qcategory.name }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('qcategory_show', { 'id': qcategory.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('qcategory_edit', { 'id': qcategory.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('qcategory_new') }}">Create a new qcategory</a>
+        </li>
+    </ul>
+{% endblock %}
